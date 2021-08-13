@@ -19,6 +19,8 @@ msbuild.log
 *.log
 *.prf
 *.trc
+*.suo
+*.vs
 buildd.dbb
 build.dbb
 buildd.evt
@@ -88,3 +90,4 @@ Prototypes/**/packages/*
 /ThrottlingSvc/src/SynapseThrottling/SynapseThrottling.DomainTests/NuGetAssetsLock.props
 /ThrottlingSvc/src/SynapseThrottling/SynapseThrottling.Domain/NuGetAssetsLock.props
 /ThrottlingSvc/src/SynapseThrottling/SynapseThrottling.Contracts/NuGetAssetsLock.props
+CodePractice/.vs/CodePractice/v16/.suo
