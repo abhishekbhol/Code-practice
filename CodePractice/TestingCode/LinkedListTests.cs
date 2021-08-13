@@ -234,5 +234,77 @@ namespace TestingCode
             Assert.AreEqual(5, ll.head.next.next.next.data);
         }
 
+        [Test]
+        public void TestReverse1()
+        {
+            var ll = new LinkedList(3);
+            ll.InsertAtFirst(2);
+            ll.InsertAtLast(4);
+
+            ll.Reverse(ll.head);
+            Assert.AreEqual(4, ll.head.data);
+            Assert.AreEqual(3, ll.head.next.data);
+            Assert.AreEqual(2, ll.head.next.next.data);
+        }
+
+        [Test]
+        public void TestReverse2()
+        {
+            var ll = new LinkedList(3);
+            ll.InsertAtFirst(2);
+
+            ll.Reverse(ll.head);
+            Assert.AreEqual(3, ll.head.data);
+            Assert.AreEqual(2, ll.head.next.data);
+        }
+
+        [Test]
+        public void TestReverse3()
+        {
+            var ll = new LinkedList(3);
+            var node = ll.Reverse(ll.head);
+            Assert.AreEqual(3, node.data);
+        }
+
+        [Test]
+        public void TestReverseInGroup()
+        {
+            var ll = new LinkedList(3);
+            ll.InsertAtFirst(2);
+            ll.InsertAtLast(4);
+            ll.InsertAtFirst(1);
+            ll.InsertAtLast(5);
+
+            var node = ll.ReverseInGroup(ll.head, 2);
+
+            Assert.AreEqual(5, ll.size);
+            Assert.AreEqual(2, node.data);
+            Assert.AreEqual(1, node.next.data);
+            Assert.AreEqual(4, node.next.next.data);
+            Assert.AreEqual(3, node.next.next.next.data);
+            Assert.AreEqual(5, node.next.next.next.next.data);
+        }
+
+        [Test]
+        public void TestAddition()
+        {
+            var ll1 = new LinkedList(7);
+            ll1.InsertAtFirst(4);
+            ll1.InsertAtLast(8);
+
+            var ll2 = new LinkedList(3);
+            ll2.InsertAtFirst(8);
+            ll2.InsertAtLast(6);
+
+            var addition = new Addition();
+            
+            var res = addition.Add(ll1.head, ll2.head);
+
+            Assert.AreEqual(1, res.data);
+            Assert.AreEqual(3, res.next.data);
+            Assert.AreEqual(1, res.next.next.data);
+            Assert.AreEqual(4, res.next.next.next.data);
+        }
+
     }
 }
