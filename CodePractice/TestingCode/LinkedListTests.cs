@@ -14,10 +14,10 @@ namespace TestingCode
         public void LinkedListInsetionTest()
         {
             var ll = new LinkedList(3);
-            ll.InsertAtFirst(2);
+            ll.InsertAtStart(2);
             ll.InsertAtLast(5);
             ll.InsertAfter(ll.head.next, 4);
-            ll.InsertAtFirst(1);
+            ll.InsertAtStart(1);
 
             Assert.AreEqual(ll.size, 5);
             Assert.AreEqual(ll.head.data, 1);
@@ -31,9 +31,9 @@ namespace TestingCode
         public void LinkedListDeletionTest()
         {
             var ll = new LinkedList(3);
-            ll.InsertAtFirst(2);
+            ll.InsertAtStart(2);
             ll.InsertAtLast(4);
-            ll.InsertAtFirst(1);
+            ll.InsertAtStart(1);
 
             Assert.AreEqual(ll.size, 4);
 
@@ -60,9 +60,9 @@ namespace TestingCode
         public void TestNthNodeFromStartAllCases()
         {
             var ll = new LinkedList(3);
-            ll.InsertAtFirst(2);
+            ll.InsertAtStart(2);
             ll.InsertAtLast(4);
-            ll.InsertAtFirst(1);
+            ll.InsertAtStart(1);
 
             var node = ll.NthNodeFromStart(2);
             Assert.AreEqual(node.data, 2);
@@ -93,9 +93,9 @@ namespace TestingCode
         public void TestNthNodeFromEndAllCases()
         {
             var ll = new LinkedList(3);
-            ll.InsertAtFirst(2);
+            ll.InsertAtStart(2);
             ll.InsertAtLast(4);
-            ll.InsertAtFirst(1);
+            ll.InsertAtStart(1);
 
             var node = ll.NthNodeFromEnd(2);
             Assert.AreEqual(node.data, 3);
@@ -129,8 +129,8 @@ namespace TestingCode
         public void TestMiddleElement()
         {
             var ll = new LinkedList(3);
-            ll.InsertAtFirst(2);
-            ll.InsertAtFirst(1);
+            ll.InsertAtStart(2);
+            ll.InsertAtStart(1);
 
             var node = ll.MiddleElement();
             Assert.AreEqual(node.data, 2);
@@ -157,7 +157,7 @@ namespace TestingCode
         public void TestPalindrome()
         {
             var ll = new LinkedList(3);
-            ll.InsertAtFirst(2);
+            ll.InsertAtStart(2);
             ll.InsertAtLast(2);
 
             var val = ll.IsPalindrome();  // 2->3->2
@@ -184,8 +184,8 @@ namespace TestingCode
         public void TestDuplicates1()
         {
             var ll = new LinkedList(3);
-            ll.InsertAtFirst(2);
-            ll.InsertAtFirst(2);
+            ll.InsertAtStart(2);
+            ll.InsertAtStart(2);
             ll.InsertAtLast(2);
             ll.InsertAtLast(3);
             ll.InsertAtLast(2);
@@ -201,9 +201,9 @@ namespace TestingCode
         public void TestDuplicates2()
         {
             var ll = new LinkedList(2);
-            ll.InsertAtFirst(2);
-            ll.InsertAtFirst(2);
-            ll.InsertAtFirst(2);
+            ll.InsertAtStart(2);
+            ll.InsertAtStart(2);
+            ll.InsertAtStart(2);
 
             ll.RemoveAllDuplicates();
             var count = ll.size;
@@ -215,8 +215,8 @@ namespace TestingCode
         public void TestDuplicates3()
         {
             var ll = new LinkedList(3);
-            ll.InsertAtFirst(2);
-            ll.InsertAtFirst(2);
+            ll.InsertAtStart(2);
+            ll.InsertAtStart(2);
             ll.InsertAtLast(4);
             ll.InsertAtLast(4);
             ll.InsertAtLast(4);
@@ -238,7 +238,7 @@ namespace TestingCode
         public void TestReverse1()
         {
             var ll = new LinkedList(3);
-            ll.InsertAtFirst(2);
+            ll.InsertAtStart(2);
             ll.InsertAtLast(4);
 
             var res = LLService.Reverse(ll.head);
@@ -251,7 +251,7 @@ namespace TestingCode
         public void TestReverse2()
         {
             var ll = new LinkedList(3);
-            ll.InsertAtFirst(2);
+            ll.InsertAtStart(2);
 
             var res = LLService.Reverse(ll.head);
             Assert.AreEqual(3, res.data);
@@ -270,9 +270,9 @@ namespace TestingCode
         public void TestReverseInGroup()
         {
             var ll = new LinkedList(3);
-            ll.InsertAtFirst(2);
+            ll.InsertAtStart(2);
             ll.InsertAtLast(4);
-            ll.InsertAtFirst(1);
+            ll.InsertAtStart(1);
             ll.InsertAtLast(5);
 
             var node = LLService.ReverseInGroup(ll.head, 2);
@@ -289,11 +289,11 @@ namespace TestingCode
         public void TestAddition()
         {
             var ll1 = new LinkedList(7);
-            ll1.InsertAtFirst(4);
+            ll1.InsertAtStart(4);
             ll1.InsertAtLast(8);
 
             var ll2 = new LinkedList(3);
-            ll2.InsertAtFirst(8);
+            ll2.InsertAtStart(8);
             ll2.InsertAtLast(6);
 
             var service = new LLService();

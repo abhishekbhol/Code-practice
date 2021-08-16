@@ -36,7 +36,7 @@ namespace CodePractice.LinkedList
 
         #region Insertion
 
-        public void InsertAtFirst(int data)
+        public void InsertAtStart(int data)
         {
             var newNode = new Node(data);
             newNode.next = head;
