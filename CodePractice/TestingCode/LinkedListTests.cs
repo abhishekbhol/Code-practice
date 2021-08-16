@@ -241,10 +241,10 @@ namespace TestingCode
             ll.InsertAtFirst(2);
             ll.InsertAtLast(4);
 
-            ll.Reverse(ll.head);
-            Assert.AreEqual(4, ll.head.data);
-            Assert.AreEqual(3, ll.head.next.data);
-            Assert.AreEqual(2, ll.head.next.next.data);
+            var res = LLService.Reverse(ll.head);
+            Assert.AreEqual(4, res.data);
+            Assert.AreEqual(3, res.next.data);
+            Assert.AreEqual(2, res.next.next.data);
         }
 
         [Test]
@@ -253,16 +253,16 @@ namespace TestingCode
             var ll = new LinkedList(3);
             ll.InsertAtFirst(2);
 
-            ll.Reverse(ll.head);
-            Assert.AreEqual(3, ll.head.data);
-            Assert.AreEqual(2, ll.head.next.data);
+            var res = LLService.Reverse(ll.head);
+            Assert.AreEqual(3, res.data);
+            Assert.AreEqual(2, res.next.data);
         }
 
         [Test]
         public void TestReverse3()
         {
             var ll = new LinkedList(3);
-            var node = ll.Reverse(ll.head);
+            var node = LLService.Reverse(ll.head);
             Assert.AreEqual(3, node.data);
         }
 
@@ -275,7 +275,7 @@ namespace TestingCode
             ll.InsertAtFirst(1);
             ll.InsertAtLast(5);
 
-            var node = ll.ReverseInGroup(ll.head, 2);
+            var node = LLService.ReverseInGroup(ll.head, 2);
 
             Assert.AreEqual(5, ll.size);
             Assert.AreEqual(2, node.data);
@@ -296,9 +296,9 @@ namespace TestingCode
             ll2.InsertAtFirst(8);
             ll2.InsertAtLast(6);
 
-            var addition = new Addition();
+            var service = new LLService();
             
-            var res = addition.Add(ll1.head, ll2.head);
+            var res = service.Add(ll1.head, ll2.head);
 
             Assert.AreEqual(1, res.data);
             Assert.AreEqual(3, res.next.data);

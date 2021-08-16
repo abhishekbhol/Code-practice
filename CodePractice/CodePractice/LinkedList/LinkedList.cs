@@ -312,59 +312,6 @@ namespace CodePractice.LinkedList
 
         #endregion
 
-        #region Reverse
-
-        public Node Reverse(Node head)
-        {
-            if(head == null || head.next == null)
-            {
-                return head;
-            }
-
-            Node left = null;
-            Node Curr = head;
-            Node right = head.next;
-
-            while(right != null)
-            {
-                Curr.next = left;
-                left = Curr;
-                Curr = right;
-                right = right.next;
-            }
-            Curr.next = left;
-
-            head = Curr;
-            return head;
-        }
-
-        public Node ReverseInGroup(Node root, int k)
-        {
-            if (root == null)
-                return null;
-
-            Node current = root;
-            Node prev = null;
-            Node next = null;
-
-            int count = 0;
-            
-            while (count < k && current != null)
-            {
-                next = current.next;
-                current.next = prev;
-                prev = current;
-                current = next;
-                count++;
-            }
-
-            if (next != null)
-                root.next = ReverseInGroup(next, k);
-
-            return prev;
-        }
-
-        #endregion
 
     }
 
