@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CodePractice.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -16,6 +17,7 @@ namespace CodePractice.LinkedList
             this.next = this.prev = null;
         }
     }
+
 
     public class DoublyLinkedList
     {
