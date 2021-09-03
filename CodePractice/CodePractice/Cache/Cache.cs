@@ -8,13 +8,23 @@ namespace CodePractice.Cache
 {
     public class LRUCache : ICache
     {
-        public DLLCache dll;
-        public IDictionary<string, DoublyNodeCache> dict;
+        private DLLCache dll;
+        private IDictionary<string, DoublyNodeCache> dict;
 
         public LRUCache(int cacheSize)
         {
             dll = new DLLCache(cacheSize);
             dict = new Dictionary<string, DoublyNodeCache>();
+        }
+
+        public string Peek()
+        {
+            var node = dll.head;
+            if(node == null)
+            {
+                return null;
+            }
+            return node.value;
         }
 
         public string Get(string key)
@@ -26,8 +36,12 @@ namespace CodePractice.Cache
 
             var node =  dict[key];
             dll.DeleteNode(node);
-            dll.InsertAtStart(node.data);
-            return node.data;
+            dict.Remove(node.key);
+
+            dll.InsertAtStart(key, node.value);
+            dict.Add(key, dll.head);
+
+            return node.value;
         }
 
         public void Set(string key, string value)
@@ -36,23 +50,28 @@ namespace CodePractice.Cache
             {
                 try
                 {
-                    dll.InsertAtStart(value);
+                    dll.InsertAtStart(key, value);
                     var node = dll.head;
                     dict.Add(key, node);
                 }
                 catch(LinkedListFullException e)
                 {
+                    var nodeToBeDeleted = dll.tail;
                     dll.DeleteFromEnd();
-                    dll.InsertAtStart(value);
-                    var node = dll.head;
-                    dict.Add(key, node);
+                    dict.Remove(nodeToBeDeleted.key);
+
+                    dll.InsertAtStart(key, value);                    
+                    dict.Add(key, dll.head);
                 }
             }
             else
             {
                 var node = dict[key];
                 dll.DeleteNode(node);
-                dll.InsertAtStart(value);
+                dict.Remove(node.key);
+
+                dll.InsertAtStart(key, value);
+                dict.Add(key, dll.head);
             }
         }
     }

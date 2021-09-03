@@ -8,13 +8,15 @@ namespace CodePractice.Cache
 
     public class DoublyNodeCache
     {
-        public string data;
+        public string key;
+        public string value;
         public DoublyNodeCache next;
         public DoublyNodeCache prev;
 
-        public DoublyNodeCache(string data)
+        public DoublyNodeCache(string key, string value)
         {
-            this.data = data;
+            this.key = key;
+            this.value = value;
             this.next = this.prev = null;
         }
     }
@@ -45,14 +47,14 @@ namespace CodePractice.Cache
             return len;
         }
 
-        public void InsertAtStart(string data)
+        public void InsertAtStart(string key, string data)
         {
             if (count == capacity)
             {
                 throw new LinkedListFullException(capacity);
             }
 
-            var newNode = new DoublyNodeCache(data);
+            var newNode = new DoublyNodeCache(key, data);
             if (head == null)
             {
                 tail = head = newNode;
@@ -63,34 +65,6 @@ namespace CodePractice.Cache
             newNode.next = head;
             head.prev = newNode;
             head = newNode;
-            count++;
-        }
-
-        public void InsertAtLast(string data)
-        {
-            if (count == capacity)
-            {
-                throw new LinkedListFullException(capacity);
-            }
-
-            var newNode = new DoublyNodeCache(data);
-            if (head == null)
-            {
-                tail = head = newNode;
-                count++;
-                return;
-            }
-
-            var tmp = head;
-
-            while (tmp.next != null)
-            {
-                tmp = tmp.next;
-            }
-
-            tmp.next = newNode;
-            newNode.prev = tmp;
-            tail = newNode;
             count++;
         }
 
@@ -111,6 +85,8 @@ namespace CodePractice.Cache
 
             if (tail == node)
                 tail = tail.prev;
+
+            count--;
         }
 
         public void DeleteFromStart()
