@@ -31,6 +31,27 @@ namespace TestingCode
         }
 
         [Test]
+        public void TestBasicCacheInsertionObject()
+        {
+            var cache = new LRUCache(4);
+            cache.Set("abhi", 1);
+            cache.Set("mona", "lisa");
+
+            var res = cache.Peek();
+            Assert.AreEqual("lisa", res);
+
+            res = cache.Get("abhi");
+            Assert.AreEqual(1, res);
+
+            res = cache.Get("mona");
+            Assert.AreEqual("lisa", res);
+
+            cache.Set("lala", new List<string> { "val1", "val2", "val3" });
+            List<string> res1 = (List<string>)cache.Get("lala");
+            Assert.AreEqual(3, res1.Count);
+        }
+
+        [Test]
         public void TestCacheEviction()
         {
             var cache = new LRUCache(4);

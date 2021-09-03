@@ -9,11 +9,11 @@ namespace CodePractice.Cache
     public class DoublyNodeCache
     {
         public string key;
-        public string value;
+        public object value;
         public DoublyNodeCache next;
         public DoublyNodeCache prev;
 
-        public DoublyNodeCache(string key, string value)
+        public DoublyNodeCache(string key, object value)
         {
             this.key = key;
             this.value = value;
@@ -47,7 +47,7 @@ namespace CodePractice.Cache
             return len;
         }
 
-        public void InsertAtStart(string key, string data)
+        public void InsertAtStart(string key, object data)
         {
             if (count == capacity)
             {

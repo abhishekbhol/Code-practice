@@ -17,7 +17,7 @@ namespace CodePractice.Cache
             dict = new Dictionary<string, DoublyNodeCache>();
         }
 
-        public string Peek()
+        public object Peek()
         {
             var node = dll.head;
             if(node == null)
@@ -27,7 +27,7 @@ namespace CodePractice.Cache
             return node.value;
         }
 
-        public string Get(string key)
+        public object Get(string key)
         {
             if(!dict.ContainsKey(key))
             {
@@ -44,7 +44,7 @@ namespace CodePractice.Cache
             return node.value;
         }
 
-        public void Set(string key, string value)
+        public void Set(string key, object value)
         {
             if (!dict.ContainsKey(key))
             {

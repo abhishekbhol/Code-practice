@@ -6,9 +6,9 @@ namespace CodePractice.Cache
 {
     public interface ICache
     {
-        public string Get(string key);
+        public object Get(string key);
 
-        public void Set(string key, string value);
+        public void Set(string key, object value);
 
     }
 }
